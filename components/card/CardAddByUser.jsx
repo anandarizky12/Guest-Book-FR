@@ -6,7 +6,7 @@ import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
 // components
 
-export default function CardAddByUser() {
+export default function AddByUser() {
 
   const dispatch = useDispatch();
   const { guest }= useSelector(state => state.addGuestReducer);

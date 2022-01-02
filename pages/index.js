@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import CardAddbyUser from '../components/card/CardAddbyUser'
+import AddByUser from '../components/card/CardAddByUser'
 import Router  from "next/router";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -68,7 +68,7 @@ function Index() {
         </div>
        
           <section id="form" className="relative md:p-6">
-              <CardAddbyUser/>
+              <AddByUser/>
           </section>
     
         </main>
