@@ -10,6 +10,7 @@ import { FaChartBar } from "@react-icons/all-files/fa/FaChartBar";
 import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
 import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
 
+
 import UserDropdown from "../../dropdown/UserDropdown";
 import { FaGripLines } from "@react-icons/all-files/fa/FaGripLines";
 
@@ -21,7 +22,7 @@ export default function Sidebar() {
   return (
     <div
     hidden={
-      router.asPath === '/login' || router.asPath === '/register' || router.asPath === '/'
+      !router.pathname.includes('admin')
       ? true
       : false
   }>

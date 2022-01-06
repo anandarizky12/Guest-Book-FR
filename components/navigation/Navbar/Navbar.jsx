@@ -5,11 +5,11 @@ import { useRouter } from "next/router";
 import UserDropdown from "../../dropdown/UserDropdown";
 
 export default function Navbar(props) {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+
   const router = useRouter();
   return (
     <div    hidden={
-      router.asPath === '/login' || router.asPath === '/register' || router.asPath === '/'
+      !router.pathname.includes('admin')
       ? true
       : false
   }>

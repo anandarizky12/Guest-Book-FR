@@ -11,13 +11,13 @@ function Layout({children}) {
     return (
         <>   
             <Sidenav />
-            <div className={` ${   router.asPath === '/login' || router.asPath === '/register' || router.asPath === '/'
+            <div className={` ${   !router.pathname.includes('admin')
                                    ? 'static'
                                    : 'static min-h-screen md:ml-64 bg-white'}`}>
                  <Navbar />
                 {/* Header */}
             
-                <div className={` ${   router.asPath === '/login' || router.asPath === '/register' || router.asPath === '/'
+                <div className={` ${ !router.pathname.includes('admin')
                      ? 'static'
                      : "px-6 md:px-5 h-full mx-auto p-5"}`}>
                   {children}
