@@ -4,7 +4,8 @@ import { addGuest } from "../../actions/guest";
 import AlertMessage from "../alert/AlertMessage";
 import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
-// components
+import { FaArrowLeft } from "@react-icons/all-files/fa/FaArrowLeft";
+import Router  from "next/router";
 
 export default function AddByUser() {
 
@@ -70,13 +71,19 @@ export default function AddByUser() {
     
 
   return (
-    <>
+    <div className="p-0 md:p-12">
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}
       <div className="font-sans relative border border-gray-200 flex flex-col break-words w-full mb-6 shadow-lg rounded-lg ">
-        <div className="rounded-t bg-blue-900 mb-0 px-6 py-6">
+        <div className="rounded-t mb-0 px-4 lg:px-9 py-6 flex justify-between">
           <div className="text-center flex justify-between">
-            <h6 className="text-white text-sm md:text-2xl font-light">Masukan Data Anda</h6>
+            <h6 className="text-blue-700 text-sm md:text-2xl font-semibold">Masukan Data Anda</h6>
           </div>
+
+          <div onClick={()=>Router.push('/')} className=" text-center flex justify-between items-center">
+           <FaArrowLeft className="text-gray-400 mr-2"/> 
+            <h6 className="text-gray-400 text-sm md:text-xl font-semibold">Kembali</h6>
+          </div>
+         
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0 bg-white">
           <form onSubmit={(e)=>handleSubmit(e)}>
@@ -214,6 +221,6 @@ export default function AddByUser() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -19,16 +19,19 @@ const UserDropdown = () => {
   const Router = useRouter();
 
   const popoverDropdownRef = React.createRef();
+
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-end",
     });
     setDropdownPopoverShow(true);
   };
+  
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
-  const ref =useDetectClickOutside({ onTriggered: closeDropdownPopover });
+  
+  const ref = useDetectClickOutside({ onTriggered: closeDropdownPopover });
    
 const logout = ()=> {
     localStorage.removeItem('auth')
