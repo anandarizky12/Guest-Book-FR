@@ -3,7 +3,7 @@ import Link from "next/link";
 import axios from "axios";
 import ErrorMessage from "../components/alert/ErrorMessage";
 import Router  from "next/router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { adminLogin } from "../actions/admin";
 import ButtonLoader from "../components/loader/ButtonLoader";
 
