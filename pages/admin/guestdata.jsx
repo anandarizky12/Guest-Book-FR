@@ -10,7 +10,7 @@ import ButtonPrint from '../../components/print/ButtonPrint';
 import DataGuestsPrint from '../../components/print/DataGuestsPrint';
 import Loader from '../../components/loader/FadeLoader';
 
-function Guestdata({data}) {
+function Guestdata() {
     const dispatch = useDispatch()
     const allguest = useSelector(state => state.allGuests);
     const { guest, loading } = allguest;

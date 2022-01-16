@@ -59,7 +59,7 @@ function Index() {
               </div>
             
             </div>
-            <div data-aos="slide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"></div>
+            <div data-aos="sPlide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"></div>
             <div data-aos="slide-up" className=" md:hidden w-full h-2/6  bg-gray-100 bg-wave  bg-cover"></div>
           
           </div>

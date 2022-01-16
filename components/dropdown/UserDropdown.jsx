@@ -84,7 +84,7 @@ React.useEffect(() => {
           <a
             href="#pablo"
             className={
-               "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-600"
+               "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal  w-full whitespace-nowrap bg-transparent text-gray-600"
             }
            
           >
@@ -95,7 +95,7 @@ React.useEffect(() => {
         <button
           onClick={() => logout()}
           className={
-            "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-600"
+            "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal  w-full whitespace-nowrap bg-transparent text-gray-600"
           }
          
         >

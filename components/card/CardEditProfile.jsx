@@ -4,7 +4,7 @@ import { editProfile } from "../../actions/admin";
 import { checkImage, myLoader } from "../utils/image";
 import axios from "axios";
 import MLoader from "../loader/MoonLoader";
-
+import { server } from "../utils/link";
 
 export default function CardEditProfile({data}) {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ export default function CardEditProfile({data}) {
         },
       };
 
-      const res = await axios.post("https://guestbookapibyar.herokuapp.com/upload", formData, config);
+      const res = await axios.post(`${server}/upload`, formData, config);
      
       setPayload({...payload, profile: res.data});
       setUploading(false);
