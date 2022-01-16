@@ -98,6 +98,7 @@ export default function Login() {
                     <input
                       type="email"
                       name= "email"
+                      required
                       value={state.email}
                       onChange={(e)=>handleInput(e)}
                       className="border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
@@ -115,6 +116,7 @@ export default function Login() {
                     <input
                       type="password"
                       name = "password"
+                      required
                       value={state.password}
                       onChange={(e)=>handleInput(e)}
                       className="border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
