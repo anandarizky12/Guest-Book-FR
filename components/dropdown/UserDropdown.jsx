@@ -66,7 +66,7 @@ React.useEffect(() => {
             {data &&
             <img
               alt="..."
-              className="inline-block md:w-12 w-9 rounded-full "
+              className="inline-block md:w-12 md:h-12 w-6 h-6 rounded-full "
               src={checkImage(data.profile)}
             />
           }

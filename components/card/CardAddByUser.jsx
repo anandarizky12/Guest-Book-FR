@@ -6,12 +6,12 @@ import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
 import { FaArrowLeft } from "@react-icons/all-files/fa/FaArrowLeft";
 import Router  from "next/router";
-
+import { getAllInstace } from "../../actions/guest";
 export default function AddByUser() {
 
   const dispatch = useDispatch();
   const { guest }= useSelector(state => state.addGuestReducer);
-
+  const { data } = useSelector(state => state.getAllInstanceReducer);
 
 
   // const { data, message, success } = guest;
@@ -20,6 +20,7 @@ export default function AddByUser() {
     phone : "",
     email : "",
     address: "",
+    instance: "",
     gender : null,
     purpose : ""
   });
@@ -55,6 +56,7 @@ export default function AddByUser() {
                             phone : "",
                             address: "",
                             email : "",
+                            instance: "",
                             gender : null,
                             purpose : ""
                           })
@@ -70,16 +72,22 @@ export default function AddByUser() {
     };
     
 
+    React.useEffect(() => {
+     dispatch(getAllInstace());
+    }, []);
+
+console.log(state);
   return (
     <div className="p-0 md:p-12">
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}
-      <div className="font-sans relative border border-gray-200 flex flex-col break-words w-full mb-6 shadow-lg rounded-lg ">
+     
+     {data && <div className="font-sans relative border border-gray-200 flex flex-col break-words w-full mb-6 shadow-lg rounded-lg ">
         <div className="rounded-t mb-0 px-4 lg:px-9 py-6 flex justify-between">
           <div className="text-center flex justify-between">
             <h6 className="text-blue-700 text-sm md:text-2xl font-semibold">Masukan Data Anda</h6>
           </div>
 
-          <div onClick={()=>Router.push('/')} className=" text-center flex justify-between items-center">
+          <div onClick={()=>Router.push('/')} className="cursor-pointer text-center flex justify-between items-center">
            <FaArrowLeft className="text-gray-400 mr-2"/> 
             <h6 className="text-gray-400 text-sm md:text-xl font-semibold">Kembali</h6>
           </div>
@@ -154,6 +162,40 @@ export default function AddByUser() {
                     className="border border-gray-300 px-3 py-3  text-gray-500 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="Masukkan alamat"
                   />
+
+            
+                  <label
+                    className="block text-gray-500 text-xs md:text-sm font-semibold mb-2 mt-5"
+                    htmlFor="grid-password"
+                  >
+                   Instansi
+                  </label>
+                 
+                  <select 
+                    name = 'instance'
+                    onChange={(e)=>handleInput(e)}
+                    class="form-select appearance-none
+                    w-full
+                    px-3
+                    py-3
+                    text-sm
+                    font-normal
+                    text-gray-500
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      <option value={null} disabled selected={state.instance ? false : true}>-- Klik Untuk Pilih Instansi --</option>
+                      {data.instance.map((item,index)=>{
+                        return <option key = {index} value={item._id}>{item.nama}</option>
+                      })}
+                      <option value={null}>Lainnya</option>
+                  </select>
+               
+                
                   <label
                     className="block text-gray-500 text-xs md:text-sm font-semibold mb-2 mt-5"
                     htmlFor="grid-password"
@@ -220,7 +262,7 @@ export default function AddByUser() {
         
           </form>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }

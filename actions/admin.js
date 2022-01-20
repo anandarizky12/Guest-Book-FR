@@ -22,15 +22,16 @@ import {
 } from './actions_type/actions_type_admin';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
-export const adminLogin = (data) => async (dispatch) => {
+import { local } from '../components/utils/link';
+export const adminLogin = (admin) => async (dispatch) => {
    try{
     dispatch({type: ADMIN_LOGIN});
 
-    dispatch({type: ADMIN_LOGIN_SUCCESS, payload: data});
-    localStorage.setItem('auth', JSON.stringify(data));
-    
-    window.location.reload();
+    dispatch({type: ADMIN_LOGIN_SUCCESS, payload: admin});
+
+    localStorage.setItem('auth', JSON.stringify(admin));
+
+    window.location.replace(`${local}/admin/addguest`);
    }catch(error){
     dispatch({type: ADMIN_LOGIN_FAIL, payload: error});
    }
@@ -94,7 +95,7 @@ export const editProfile = (id, data) => async (dispatch, getState) => {
                 'Data Berhasil Diubah',
                 'success'
               ).then((result) => {
-                  if(result.isConfirmed) window.location.reload()})
+                  if(result.isConfirmed) dispatch(getAdmin(id))})
         )
        
     }catch(error){

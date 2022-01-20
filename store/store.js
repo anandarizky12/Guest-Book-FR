@@ -8,7 +8,7 @@ import {
     editGuestReducer,
     getGuestReducer,
     getTotalGuestReducer,
- 
+    getAllInstanceReducer
 } from '../reducers/guestReducers';
 import {
     adminLogin,
@@ -41,7 +41,8 @@ const reducers = combineReducers({
     getTotalGuestReducer,
     editProfile,
     getAdmin,
-    getAllAdmin
+    getAllAdmin,
+    getAllInstanceReducer
 });
 
 let adminDataFromStorage;

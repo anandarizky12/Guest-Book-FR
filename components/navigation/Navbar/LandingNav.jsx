@@ -40,9 +40,9 @@ function LandingNav({ about, contact, home }) {
             <FaGripLines onClick={()=>setShow(!show)} className='md:hidden inline-block text-xl text-gray-500'/>  
             <ul className={`${show ? 'h-80 transition-all duration-100' : 'h-0 transition-all duration-100'}  
                              overflow-hidden  right-0 shadow-md w-full bg-gray-100 ease-in flex md:hidden absolute flex-col text-gray-500 top-12  font-light items-center`}>
-              <li className='m-6' onClick={()=>handleNav(home)}>Home</li>
-              <li className='m-6' onClick={()=>handleNav(about)} >Tentang</li>
-              <li className='m-6' onClick={()=>handleNav(contact)}>Contact</li>
+              <li className='m-6 cursor-pointer' onClick={()=>handleNav(home)}>Home</li>
+              <li className='m-6 cursor-pointer' onClick={()=>handleNav(about)} >Tentang</li>
+              <li className='m-6 cursor-pointer' onClick={()=>handleNav(contact)}>Contact</li>
               <li onClick={()=>Router.push('/login')} className='cursor-pointer m-6 hover:bg-green-400 bg-green-600 px-4 p-1 rounded-md flex items-center text-white'><FaSignInAlt className="mr-2"/> Admin</li>
             </ul>
         </div>
