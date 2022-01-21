@@ -76,7 +76,7 @@ export default function AddByUser() {
      dispatch(getAllInstace());
     }, []);
 
-console.log(state);
+console.log(data);
   return (
     <div className="p-0 md:p-12">
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}

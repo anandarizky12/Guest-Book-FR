@@ -4,6 +4,7 @@ import { editGuest } from "../../actions/guest";
 import AlertMessage from "../alert/AlertMessage";
 import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
+import { getAllInstace } from "../../actions/guest";
 // components
 
 export default function CardAddGuest({data ,id}) {
@@ -16,12 +17,13 @@ export default function CardAddGuest({data ,id}) {
   const [showAlert, setShowAlert] = React.useState(false);
   const  auth  = useSelector(state => state.auth);
   const { adminInfo } = auth;
-
+  
   // const { data, message, success } = guest;
   const [state, setState] = React.useState({
     name: data.name,
     phone :data.phone,
     email: data.email,
+    instance : data.instance,
     address: data.address,
     gender : data.gender,
     purpose : data.purpose
@@ -32,6 +34,7 @@ export default function CardAddGuest({data ,id}) {
       name: data.name,
       phone :data.phone,
       email: data.email,
+      instance : data.instance,
       address: data.address,
       gender : data.gender,
       purpose : data.purpose
@@ -46,23 +49,10 @@ export default function CardAddGuest({data ,id}) {
         [name] : value
       })
   };
-
-  // const handleSubmit = (e) =>{
-  //     e.preventDefault();
-  //     dispatch(editGuest(id, state));
-  //     const {
-  //       auth : {adminInfo}
-  //   } = getState();
-
-  //   const config = {
-  //       headers: {
-  //           'Content-Type': 'application/json',
-  //           'Authorization': 'Bearer ' +  adminInfo.token,
-  //       }
-  //     };
-  //   const response = await axios.put(`/api/updateguest/${id}`, data, config);
-  //     // if(!loading) setShow(true);
-  // };
+  React.useEffect(() => {
+    dispatch(getAllInstace());
+   }, []);
+  const  instance_data = useSelector(state => state.getAllInstanceReducer);
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -96,7 +86,7 @@ export default function CardAddGuest({data ,id}) {
   }
 
   
-  console.log(edit, data);
+  console.log(state);
   return (
     <>
       {guest && <AlertMessage show={showAlert} setShowAlert={setShowAlert} message={guest.message} success={guest.success}/>}
@@ -175,6 +165,40 @@ export default function CardAddGuest({data ,id}) {
                     className="border-0 px-3 py-3 placeholder-gray-300 text-gray-500 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="Masukkan alamat"
                   />
+
+                        
+                  <label
+                    className="block text-gray-500 text-xs md:text-sm font-semibold mb-2 mt-5"
+                    htmlFor="grid-password"
+                  >
+                   Instansi
+                  </label>
+                 
+                  <select 
+                    name = 'instance'
+                    onChange={(e)=>handleInput(e)}
+                 
+                    class="form-select appearance-none
+                    w-full
+                    px-3
+                    py-3
+                    text-sm
+                    font-normal
+                    text-gray-500
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                      <option value={null} disabled selected={state.instance ? false : true}>-- Klik Untuk Pilih Instansi --</option>
+                      {instance_data.data && instance_data.data.instance.map((item,index)=>{
+                        return <option selected={state.instance._id == item._id} key={index} value={item._id}>{item.nama}</option>
+                      })}
+                      {/* <option  value={null}>Lainnya</option> */}
+                  </select>
+               
                   <label
                     className="block text-gray-500 text-xs md:text-sm font-semibold mb-2 mt-5"
                     htmlFor="grid-password"
