@@ -1,9 +1,5 @@
 import React from 'react'
-
 import { getFiltered, paginationData } from '../utils/filtered'
-
-
-
 
 function TableAdmin( { admin, filter, setFilter, activePage, setActivePage} ) {
     

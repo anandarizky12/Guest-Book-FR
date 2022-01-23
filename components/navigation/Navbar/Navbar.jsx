@@ -1,6 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-
 import UserDropdown from "../../dropdown/UserDropdown";
 
 export default function Navbar() {

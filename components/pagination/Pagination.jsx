@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaChevronLeft } from "@react-icons/all-files/fa/FaChevronLeft";
 import { FaChevronRight } from "@react-icons/all-files/fa/FaChevronRight";
-import { FaVenus } from "@react-icons/all-files/fa/FaVenus";
+
 
 function Pagination({ data , activePage, setActivePage }) {
 

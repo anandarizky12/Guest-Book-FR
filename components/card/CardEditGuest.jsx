@@ -194,7 +194,7 @@ export default function CardAddGuest({data ,id}) {
                     focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                       <option value={null} disabled selected={state.instance ? false : true}>-- Klik Untuk Pilih Instansi --</option>
                       {instance_data.data && instance_data.data.instance.map((item,index)=>{
-                        return <option selected={state.instance._id == item._id} key={index} value={item._id}>{item.nama}</option>
+                        return <option selected={state.instance._id == item._id} key={index} value={item._id}>{item.name}</option>
                       })}
                       {/* <option  value={null}>Lainnya</option> */}
                   </select>

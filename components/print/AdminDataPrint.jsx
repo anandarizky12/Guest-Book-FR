@@ -1,9 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { getFiltered, paginationData } from '../utils/filtered'
-import { FaVenus } from "@react-icons/all-files/fa/FaVenus";
-import { FaMars } from "@react-icons/all-files/fa/FaMars";
-import { handleDelete } from '../utils/handleDelete';
+// import { FaVenus } from "@react-icons/all-files/fa/FaVenus";
+// import { FaMars } from "@react-icons/all-files/fa/FaMars";
+// import { handleDelete } from '../utils/handleDelete';
 
 function AdminDataPrint( { admin, filter, setFilter, activePage, setActivePage} ) {
 

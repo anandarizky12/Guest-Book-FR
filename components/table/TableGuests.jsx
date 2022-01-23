@@ -10,7 +10,7 @@ function TableGuests( { guest, filter, setFilter, activePage, setActivePage} ) {
     
     const dispatch = useDispatch();
     const router = useRouter()
-    console.log(filter)
+
     return (
                 <div className=' w-full'>
                     <div className ="w-full lg:w-6/6 ">
