@@ -33,7 +33,7 @@ function TableVisitPurpose( { guest, filter, setFilter, activePage, setActivePag
                                            </td>
                                            <td className ="py-3 px-6 text-left">
                                                <div className ="flex items-center">
-                                                   <span className ="text-sm">{guest.address}</span>
+                                                    <span >{guest.instance ? guest.instance.name  : guest.address}</span>
                                                </div>
                                            </td>
                                            <td className ="py-3 px-6 text-left">

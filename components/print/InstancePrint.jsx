@@ -1,11 +1,8 @@
 import React from 'react'
-
 import { getFiltered, paginationData } from '../utils/filtered'
-import { FaVenus } from "@react-icons/all-files/fa/FaVenus";
-import { FaMars } from "@react-icons/all-files/fa/FaMars";
 
 
-function DataGuestsPrint( { guest, filter, activePage } ) {
+function DataGuestsPrint( { instansi, filter, activePage } ) {
 
 
     return (
@@ -20,7 +17,7 @@ function DataGuestsPrint( { guest, filter, activePage } ) {
                     </div>
                     <hr className="mb-4 md:min-w-full b-2 text-red-600 bg-red-500" />
                 
-                    <header className='text-sm'>DATA TAMU PADA BADAN PUSAT STATISTIK KOTA BANJARMASIN</header>
+                    <header className='text-sm'>DATA KUNJUNGAN INSTANSI PADA BADAN PUSAT STATISTIK KOTA BANJARMASIN</header>
               
                     <div className ="w-full lg:w-6/6">
                         <div className ="bg-white shadow-md rounded my-6 ">
@@ -28,43 +25,31 @@ function DataGuestsPrint( { guest, filter, activePage } ) {
                                 <thead>
                                     <tr className ="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                         <th className ="py-3 px-6 text-left">Nama</th>
-                                        <th className ="py-3 px-6 text-left">Email</th>
-                                        <th className ="py-3 px-6 text-center">Telepon</th>
-                                        <th className ="py-3 px-6 text-center">Alamat</th>
-                                        <th className ="py-3 px-6 text-center">Jenis Kelamin</th>
+                                        <th className ="py-3 px-6 text-left">Perangkat Daerah</th>
+                                        <th className ="py-3 px-6 text-center">Kunjungan</th>
+                                      
                                     </tr>
                                 </thead>
                                 <tbody className ="text-gray-600 text-sm font-light">
-                                    {!guest && <p>Loading . . . </p>}
-                                    {guest &&  paginationData(getFiltered(guest.guest , filter), activePage, 10).map((guest , index) => (
+                                    {!instansi && <p>Loading . . . </p>}
+                                    {instansi &&  paginationData(getFiltered(instansi , filter), activePage, 10).map((instansi , index) => (
                                            <tr key={index} className ="border-b border-gray-200 hover:bg-gray-100">
                                            <td className ="py-3 px-6 text-left whitespace-nowrap">
                                                <div className ="flex items-center">
-                                                   <span className ="font-medium">{guest.name}</span>
+                                                   <span className ="font-medium">{instansi.name}</span>
                                                </div>
                                            </td>
                                            <td className ="py-3 px-6 text-left">
                                                <div className ="flex items-center">
-                                                   <span className ="bg-red-500 text-gray-100 py-1 px-3 rounded-full text-sm">{guest.email}</span>
+                                                   <span className =" py-1  rounded-full text-sm">{instansi.perangkat_daerah}</span>
                                                </div>
                                            </td>
                                            <td className ="py-3 px-6 text-center">
                                                <div className ="flex items-center justify-center">
-                                                  <span className ="bg-green-500 tracking-wide text-gray-100 py-1 px-3 rounded-full text-sm">+{guest.phone}</span>
+                                                  <span className ="font-semibold tracking-wide py-1 px-3 rounded-full text-sm">{instansi.guest.length} Orang</span>
                                                </div>
                                            </td>
-                                           <td className ="py-3 px-6 text-center">
-                                             <span >{guest.instance ? guest.instance.name  : guest.address}</span>
-                                           </td>
-                                           <td className ="py-3 px-6 text-left">
-                                               <div className ="flex items-center">
-                                                   <div className ="mr-2">
-                                                       {guest.gender == "Laki-Laki" ? <FaMars className='text-blue-500'/> : <FaVenus className='text-red-400'/>}
-                                                   </div>
-                                                   <span>{guest.gender}</span>
-                                               </div>
-                                           </td>
-                                       
+
                                        </tr>
                                     ))} 
                                  

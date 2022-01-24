@@ -20,6 +20,14 @@ function CardDetailGuest({id, data}) {
            </div>
            <div className="w-full  border-b border-gray-300 p-3 flex items-center flex-row flex-wrap">
                <div className="w-52 text-xs uppercase text-gray-500">
+                    <p>Instansi</p>
+               </div>
+               <div className="font-sans text-base text-gray-800">
+                   {data.instance.name}
+               </div>
+           </div>
+           <div className="w-full  border-b border-gray-300 p-3 flex items-center flex-row flex-wrap">
+               <div className="w-52 text-xs uppercase text-gray-500">
                     <p>Alamat</p>
                </div>
                <div className="font-sans text-base text-gray-800">

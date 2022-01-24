@@ -5,6 +5,7 @@ import AlertMessage from "../alert/AlertMessage";
 import axios from "axios";
 import ButtonLoader from "../loader/ButtonLoader";
 import { getAllInstace } from "../../actions/guest";
+import Loader from "../loader/FadeLoader";
 // components
 
 export default function CardAddGuest() {
@@ -78,12 +79,13 @@ export default function CardAddGuest() {
     }
     React.useEffect(() => {
       dispatch(getAllInstace());
-     }, []);
+     }, [dispatch]);
 
-
+console.log(data)
   return (
     <>
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}
+      {data ?
       <div className="font-sans relative border border-gray-200 flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ">
         <div className="rounded-t bg-gray-500 md:bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
@@ -152,7 +154,6 @@ export default function CardAddGuest() {
                   </label>
                   <input
                     type="text"
-                    required
                     value={state.address}
                     onChange={(e) => handleInput(e)}
                     name="address"
@@ -160,6 +161,13 @@ export default function CardAddGuest() {
                     placeholder="Masukkan alamat"
                   />
 
+                  <label
+                    className="block text-gray-500 text-xs md:text-sm font-semibold mb-2 mt-5"
+                    htmlFor="grid-password"
+                  >
+                   Instansi
+                  </label>
+                 
                   <select 
                     name = 'instance'
                     onChange={(e)=>handleInput(e)}
@@ -177,7 +185,7 @@ export default function CardAddGuest() {
                     ease-in-out
                     m-0
                     focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
-                      <option value={null} disabled selected={state.instance ? false : true}>-- Klik Untuk Pilih Instansi --</option>
+                      <option value={null} disabled selected={data.instance ? true : false}>-- Klik Untuk Pilih Instansi --</option>
                       {data.instance.map((item,index)=>{
                         return <option key = {index} value={item._id}>{item.name}</option>
                       })}
@@ -251,6 +259,9 @@ export default function CardAddGuest() {
           </form>
         </div>
       </div>
+      :
+      <Loader/>
+    }
     </>
   );
 }
