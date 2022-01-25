@@ -10,7 +10,7 @@ function DetailGuest() {
    
     const dispatch = useDispatch();
     const data = useSelector(state => state.getGuestReducer);
-    const { guest } = data
+    const { guest, loading } = data
     const router = useRouter();
     const id = router.query.index;
 
@@ -20,9 +20,9 @@ function DetailGuest() {
 
 
     return (
-        <div className="flex flex-wrap items-center w-full">
+        <div className="flex  items-center h-screen">
     
-        {guest ?<CardDetailGuest id={id} data={guest.guest}/>
+        {guest && !loading ?<CardDetailGuest id={id} data={guest.guest}/>
         : <MLoader/>
         }
    </div>

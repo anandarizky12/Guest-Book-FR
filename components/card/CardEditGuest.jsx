@@ -12,7 +12,7 @@ export default function CardAddGuest({data ,id}) {
   const dispatch = useDispatch();
   const edit = useSelector(state => state.editGuestReducer);
   const { guest } = edit;
-  const [show , setShow] = React.useState(false);
+  // const [show , setShow] = React.useState(false);
   const [loading , setLoading ] = React.useState(false);
   const [showAlert, setShowAlert] = React.useState(false);
   const  auth  = useSelector(state => state.auth);
@@ -74,7 +74,7 @@ export default function CardAddGuest({data ,id}) {
                       .catch((err)=>{
                         setLoading(false)
                         const msg = JSON.parse(err.request.response);
-                        console.log(msg);
+                      
                         // for (let key in msg) {
                         //   setErrMsg(msg[key]);
                         //   dispatch(editGuest(msg[key]));
@@ -158,7 +158,6 @@ export default function CardAddGuest({data ,id}) {
                   </label>
                   <input
                     type="text"
-                    required
                     value={state.address}
                     onChange={(e) => handleInput(e)}
                     name="address"
