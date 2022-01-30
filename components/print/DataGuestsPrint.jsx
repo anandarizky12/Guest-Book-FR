@@ -50,7 +50,7 @@ function DataGuestsPrint( { guest, filter, activePage } ) {
                                            </td>
                                            <td className ="py-3 px-6 text-center">
                                                <div className ="flex items-center justify-center">
-                                                  <span className ="bg-green-500 tracking-wide text-gray-100 py-1 px-3 rounded-full text-sm">+{guest.phone}</span>
+                                                  <span className ="bg-green-500 tracking-wide text-gray-100 py-1 px-3 rounded-full text-sm">{guest.phone}</span>
                                                </div>
                                            </td>
                                            <td className ="py-3 px-6 text-center">

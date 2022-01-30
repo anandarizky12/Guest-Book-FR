@@ -18,9 +18,9 @@ function TableTime( { guest, filter, setFilter, activePage, setActivePage} ) {
                     <thead>
                             <tr className ="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                                 <th className ="py-3 px-6 text-left">Nama</th>
-                                <th className ="py-3 px-6 text-left">Jam</th>
-                                <th className ="py-3 px-6 text-left">Hari</th>
-                                <th className ="py-3 px-6 text-left">Waktu Kunjungan</th>
+                                <th className ="py-3 px-6 text-center">Jam</th>
+                                <th className ="py-3 px-6 text-center">Hari</th>
+                                <th className ="py-3 px-6 text-center">Tanggal Kunjungan</th>
                                 <th className ="py-3 px-6 text-center">Actions</th>
                               
 
@@ -35,13 +35,13 @@ function TableTime( { guest, filter, setFilter, activePage, setActivePage} ) {
                                        </div>
                                    </td>
                                    
-                                   <td className ="py-3 px-6 text-left">
+                                   <td className ="py-3 px-6 text-center">
                                        <span >{moment(guest.createdAt).format('LT')}</span>
                                    </td>
-                                   <td className ="py-3 px-6 text-left">
+                                   <td className ="py-3 px-6 text-center">
                                        <span >{moment(guest.createdAt).format('dddd')}</span>
                                    </td>
-                                   <td className ="py-3 px-6 text-left">
+                                   <td className ="py-3 px-6 text-center">
                                        <span >{moment(guest.createdAt).format('LL')}</span>
                                    </td>
                            

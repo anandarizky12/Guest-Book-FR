@@ -37,13 +37,13 @@ function VisitTimePrint({ guest, filter, activePage }) {
                                    </div>
                                </td>
                                <td className ="py-3 px-6 text-left">
-                                       <span >{moment(guest.date).format('LT')}</span>
+                                       <span >{moment(guest.createdAt).format('LT')}</span>
                                    </td>
                                    <td className ="py-3 px-6 text-left">
-                                       <span >{moment(guest.date).format('dddd')}</span>
+                                       <span >{moment(guest.createdAt).format('dddd')}</span>
                                    </td>
-                                   <td className ="py-3 px-6 text-left">
-                                       <span >{moment(guest.date).format('LL')}</span>
+                                   <td className ="py-3 px-6 text-center">
+                                       <span >{moment(guest.createdAt).format('LL')}</span>
                                    </td>
                            </tr>
                         ))} 

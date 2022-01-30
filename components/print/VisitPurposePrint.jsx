@@ -22,7 +22,7 @@ function VisitPurposePrint({ guest, filter, activePage }) {
                         <tr className ="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                             <th className ="py-3 px-6 text-left">Nama</th>
                             <th className ="py-3 px-6 text-left">Instansi/Alamat</th>
-                            <th className ="py-3 px-6 text-center">Tujuan Kunjungan</th>
+                            <th className ="py-3 px-6 text-left">Tujuan Kunjungan</th>
                         </tr>
                     </thead>
                     <tbody className ="text-gray-600 text-sm font-light">
@@ -39,8 +39,8 @@ function VisitPurposePrint({ guest, filter, activePage }) {
                                    <span >{guest.instance ? guest.instance.name  : guest.address}</span>
                                    </div>
                                </td>
-                               <td className ="py-3 px-6 text-center">
-                                   <div className ="flex items-center justify-center">
+                               <td className ="py-3 px-6 text-left">
+                                   <div className ="flex items-center">
                                         <span className ="font-medium">{guest.purpose}</span>
                                    </div>
                                </td>
