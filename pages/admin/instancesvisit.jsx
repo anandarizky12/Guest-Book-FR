@@ -13,7 +13,7 @@ import Loader from '../../components/loader/FadeLoader';
 function Instancevisit() {
     const dispatch = useDispatch()
     const instansi = useSelector(state => state.getAllInstanceReducer);
-    // const { guest, loading } = allguest;
+
     const [filter, setFilter] = React.useState(null)
     const [activePage, setActivePage] = React.useState(1)
 
