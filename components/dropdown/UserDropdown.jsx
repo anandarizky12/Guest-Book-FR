@@ -66,7 +66,7 @@ React.useEffect(() => {
             {data &&
             <img
               alt="..."
-              className="inline-block md:w-12 w-9 rounded-full "
+              className="inline-block md:w-12 md:h-12 w-6 h-6 rounded-full "
               src={checkImage(data.profile)}
             />
           }
@@ -84,7 +84,7 @@ React.useEffect(() => {
           <a
             href="#pablo"
             className={
-               "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-600"
+               "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal  w-full whitespace-nowrap bg-transparent text-gray-600"
             }
            
           >
@@ -95,7 +95,7 @@ React.useEffect(() => {
         <button
           onClick={() => logout()}
           className={
-            "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-600"
+            "flex items-center hover:text-gray-400 text-sm py-2 px-4 font-normal  w-full whitespace-nowrap bg-transparent text-gray-600"
           }
          
         >

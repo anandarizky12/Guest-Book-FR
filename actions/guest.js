@@ -15,6 +15,10 @@ import {
     GET_ALL_GUESTS_SUCCESS,
     GET_ALL_GUESTS_FAIL,
    
+    GET_ALL_INSTANCE,
+    GET_ALL_INSTANCE_SUCCESS,
+    GET_ALL_INSTANCE_FAIL,
+   
    GET_GUEST,
    GET_GUEST_SUCCESS,
    GET_GUEST_FAIL,
@@ -62,6 +66,22 @@ export const getAllGuests = () => async (dispatch, getState) => {
         dispatch({type: GET_ALL_GUESTS_FAIL , error: error.message});
     }
 };
+
+export const getAllInstace = () => async (dispatch, getState) => {
+
+    try{
+        dispatch({type : GET_ALL_INSTANCE});
+
+        const res = await axios.get('/api/instance');
+        
+        dispatch({type: GET_ALL_INSTANCE_SUCCESS , payload: res.data});
+
+    }catch(error){
+        console.log(error);
+        dispatch({type: GET_ALL_INSTANCE_FAIL , error: error.message});
+    }
+};
+
 
 export const getGuest = (id) => async (dispatch, getState) => {
     try{

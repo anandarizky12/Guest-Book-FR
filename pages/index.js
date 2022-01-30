@@ -1,10 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import AddByUser from '../components/card/CardAddByUser'
+import React, { useEffect, createRef } from 'react';
+import { useSelector } from 'react-redux';
 import Router  from "next/router";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaSignInAlt } from "@react-icons/all-files/fa/FaSignInAlt";
 import LandingNav from '../components/navigation/Navbar/LandingNav';
 import AboutCard from '../components/card/AboutCard';
 import Contact from '../components/contact/Contact';
@@ -13,22 +11,25 @@ import Footer from '../components/footer/Footer';
 function Index() {
   const  auth  = useSelector((state) => state.auth);
   const { adminInfo } = auth;
-  const aboutRef = React.createRef();
-  const contactRef = React.createRef();
-  const homeRef = React.createRef();
+  
+  const aboutRef = createRef();
+  const contactRef = createRef();
+  const homeRef = createRef();
 
-  React.useEffect(() =>{
+  useEffect(() =>{
     AOS.init();
-  },[])
+  },[]);
 
 
-  React.useEffect(() => {
+  useEffect(() => {
      if(adminInfo) Router.push("/admin/addguest");
-  }, [adminInfo])
+  }, [adminInfo]);
 
   return (
       <div className='bg-gray-100 '>
+
         <LandingNav home={homeRef} about={aboutRef} contact={contactRef}/>
+        
         <main>
         <section ref={homeRef}>
           <div className="flex flex-col md:flex-row h-screen items-center justify-between">
@@ -58,7 +59,7 @@ function Index() {
               </div>
             
             </div>
-            <div data-aos="slide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"></div>
+            <div data-aos="sPlide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"></div>
             <div data-aos="slide-up" className=" md:hidden w-full h-2/6  bg-gray-100 bg-wave  bg-cover"></div>
           
           </div>
@@ -74,10 +75,8 @@ function Index() {
         </main>
           <Footer/>
         </div>
-          
-
-       
+    
     )
 }
 
-export default Index
+export default Index;

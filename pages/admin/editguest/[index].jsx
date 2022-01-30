@@ -20,7 +20,8 @@ function Addguest() {
     return (
         <div className="flex flex-wrap items-center w-full">
     
-            {guest && loading == false ? (<CardEditGuest id={id} data={guest.guest}/>)
+            {guest && loading == false ? 
+            (<CardEditGuest id={id} data={guest.guest}/>)
             :   (<Loader/>)
             }
        </div>

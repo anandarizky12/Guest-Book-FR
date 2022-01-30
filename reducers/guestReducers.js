@@ -15,13 +15,17 @@ import {
     GET_ALL_GUESTS_SUCCESS,
     GET_ALL_GUESTS_FAIL,
    
-   GET_GUEST,
-   GET_GUEST_SUCCESS,
-   GET_GUEST_FAIL,
+    GET_ALL_INSTANCE,
+    GET_ALL_INSTANCE_SUCCESS,
+    GET_ALL_INSTANCE_FAIL,
+   
+    GET_GUEST,
+    GET_GUEST_SUCCESS,
+    GET_GUEST_FAIL,
 
-   GET_TOTAL_GUEST,
-   GET_TOTAL_GUEST_SUCCESS,
-   GET_TOTAL_GUEST_FAIL,
+    GET_TOTAL_GUEST,
+    GET_TOTAL_GUEST_SUCCESS,
+    GET_TOTAL_GUEST_FAIL,
 
 
 } from '../actions/actions_type/actions_type_guest';
@@ -165,6 +169,31 @@ export const getTotalGuestReducer = (state = {}, action) => {
                 guest: action.payload.data,
             };
         case GET_TOTAL_GUEST_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
+        default:
+            return state;
+    }
+}
+
+
+export const getAllInstanceReducer = (state = {}, action) => {
+    switch (action.type) {
+        case GET_ALL_INSTANCE:
+            return {
+                ...state,
+                loading: true,
+            };
+        case GET_ALL_INSTANCE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                data: action.payload,
+            };
+        case GET_ALL_INSTANCE_FAIL:
             return {
                 ...state,
                 loading: false,

@@ -1,9 +1,5 @@
 import React from 'react'
-
 import { getFiltered, paginationData } from '../utils/filtered'
-
-
-
 
 function TableAdmin( { admin, filter, setFilter, activePage, setActivePage} ) {
     
@@ -29,13 +25,13 @@ function TableAdmin( { admin, filter, setFilter, activePage, setActivePage} ) {
                                                         <span className ="font-medium">{admin.name}</span>
                                                     </div>
                                                 </td>
-                                                <td className ="py-3">
-                                                    <div className ="flex  justify-start ">
+                                                <td className ="py-3 px-6 text-center">
+                                                    <div className ="flex">
                                                         <span className ="bg-red-500 tracking-wide text-gray-100 py-1 px-3 rounded-full text-xs">{admin.email}</span>
                                                     </div>
                                                 </td>
-                                                <td className ="py-3 px-6 ">
-                                                    <div className ="flex justify-center">
+                                                <td className ="py-3 px-6 text-center">
+                                                    <div className ="flex ">
                                                         <span className ="bg-green-500 tracking-wide text-gray-100 py-1 px-3 rounded-full text-sm">{admin.phone}</span>
                                                     </div>
                                                 </td>

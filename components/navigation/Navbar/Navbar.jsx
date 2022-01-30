@@ -1,10 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
-
 import UserDropdown from "../../dropdown/UserDropdown";
 
-export default function Navbar(props) {
+export default function Navbar() {
 
   const router = useRouter();
   return (
@@ -17,7 +15,7 @@ export default function Navbar(props) {
         <div className="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
           {/* Brand */}
            <a
-            className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+            className="text-white text-sm uppercase hidden md:inline-block font-semibold"
             href="#pablo"
             onClick={(e) => e.preventDefault()}
           >

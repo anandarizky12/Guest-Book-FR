@@ -1,5 +1,4 @@
 import React from 'react'
-import MainBar from '../graph/Bar'
 
 function VisitDataPrint({ year, report}) {
 

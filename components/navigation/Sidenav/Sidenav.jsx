@@ -1,19 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
 import { FaUserPlus } from "@react-icons/all-files/fa/FaUserPlus";
 import { FaTimes } from "@react-icons/all-files/fa/FaTimes";
-
-
 import { FaUserFriends } from "@react-icons/all-files/fa/FaUserFriends";
 import { FaChartBar } from "@react-icons/all-files/fa/FaChartBar";
 import { FaUserTie } from "@react-icons/all-files/fa/FaUserTie";
 import { FaFileAlt } from "@react-icons/all-files/fa/FaFileAlt";
-
-
 import UserDropdown from "../../dropdown/UserDropdown";
 import { FaGripLines } from "@react-icons/all-files/fa/FaGripLines";
+import { FaBuilding } from "@react-icons/all-files/fa/FaBuilding";
+import { FaClock } from "@react-icons/all-files/fa/FaClock";
 
 
 export default function Sidebar() {
@@ -26,7 +23,7 @@ export default function Sidebar() {
       !router.pathname.includes('admin')
       ? true
       : false
-  }>
+    }>
       <nav  className="z-50 font-sans md:left-0 bg-white md:block md:fixed md:top-0 md:bottom-0 md:overflow-y-auto md:flex-row md:flex-nowrap md:overflow-hidden flex flex-wrap items-center justify-between relative md:w-64 py-4 px-6"
       >
         <div className="md:flex-col md:items-stretch md:min-h-full md:flex-nowrap px-0 flex flex-wrap items-center justify-between w-full mx-auto">
@@ -170,7 +167,7 @@ export default function Sidebar() {
                         : "text-gray-500 hover:text-gray-400")
                     }
                   >
-                   <FaUserFriends  className="text-xl mr-5"/>
+                   <FaClock  className="text-xl mr-5"/>
                      Waktu Kunjungan
                   </a>
                 </Link>
@@ -188,6 +185,23 @@ export default function Sidebar() {
                   >
                     <FaUserTie className="text-xl mr-5"/>
                     Data Admin
+                  </a>
+                </Link>
+              </li>
+         
+              <li className="items-center my-1">
+                <Link href="/admin/instancesvisit">
+                <a
+                    href="#pablo"
+                    className={
+                      "text-xs md:text-sm  py-3 font-semibold flex items-center " +
+                      (router.pathname.indexOf("/admin/instancesvisit") !== -1
+                        ? "text-blue-500 hover:text-blue-500"
+                        : "text-gray-500 hover:text-gray-400")
+                    }
+                  >
+                    <FaBuilding className="text-xl mr-5"/>
+                    Kunjungan Instansi
                   </a>
                 </Link>
               </li>

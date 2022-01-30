@@ -10,7 +10,7 @@ function TableGuests( { guest, filter, setFilter, activePage, setActivePage} ) {
     
     const dispatch = useDispatch();
     const router = useRouter()
-    console.log(filter)
+
     return (
                 <div className=' w-full'>
                     <div className ="w-full lg:w-6/6 ">
@@ -45,7 +45,7 @@ function TableGuests( { guest, filter, setFilter, activePage, setActivePage} ) {
                                                     </div>
                                                 </td>
                                                 <td className ="py-3 px-6 ">
-                                                    <span >{guest.address}</span>
+                                                    <span >{guest.instance ? guest.instance.name  : guest.address}</span>
                                                 </td>
                                                 <td className ="py-3 px-6 text-left">
                                                     <div className ="flex items-center">

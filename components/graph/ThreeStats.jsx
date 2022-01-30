@@ -1,7 +1,6 @@
 import React from "react";
-
-// components
 import CardStats from "../card/CardStats";
+
 export default function ThreeStats({report}) {
 
   const totalGuest = report.reduce((acc, cur) => {
