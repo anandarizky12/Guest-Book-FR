@@ -9,14 +9,14 @@ class MyDocument extends Document {
   render() {
     return (
       <Html className='scroll-smooth'>
-        <Head />
-        <body   style={{
-            // overflowX: "hidden",
-            padding: 0,
-            margin: 0,
-            scrollBehavior: "smooth",
-            
-          }}>
+          <Head>
+          {/* PWA primary color */}
+          <meta
+          name="description"
+          content="Buku tamu Badan Pusat Statistik Kota Banjarmasin"
+        />
+        </Head>
+        <body>
           <Main />
           <NextScript />
         </body>

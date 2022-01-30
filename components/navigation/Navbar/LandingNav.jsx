@@ -32,7 +32,7 @@ function LandingNav({ about, contact, home }) {
     return (
     <div  ref={nav} className={` ${ scrool ? "bg-gray-100  transition-all md:h-14 ease-in  duration-200  shadow-md" : "bg-gray-100  shadow-sm transition-color  ease-out  duration-200" } h-12 fixed sm:h-16 z-50 flex w-full justify-between items-center p-4 sm:px-6`}>
         <div className="bg-none top-0 p-0 sm:p-5 text-blue-800 flex items-center text-base md:text-xl font-semibold">
-            <img src="/onlylogo.png" className='mr-1 md:mr-2 w-12 md:w-18' />
+            <img alt='buku tamu bps' src="/onlylogo.png" className='mr-1 md:mr-2 w-12 md:w-18' />
             <p>Badan Pusat Statistik</p>
         </div>
   

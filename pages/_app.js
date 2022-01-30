@@ -8,12 +8,16 @@ function MyApp({ Component, pageProps }) {
   
 
   return (
-  <Provider   store={store}>
+  <Provider store={store}>
       <Head>
-        <title>BPS Kota Banjarmasin</title>
+        <title>Buku tamu BPS</title>
         <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
+          name="description"
+          content="Buku tamu Badan Pusat Statistik Kota Banjarmasin"
+        />
+        <meta
+          name="og:title"
+          content="Buku tamu BPS kota Banjarmasin"
         />
     
       </Head>
