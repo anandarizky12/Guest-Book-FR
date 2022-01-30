@@ -171,7 +171,7 @@ console.log(data)
                   <select 
                     name = 'instance'
                     onChange={(e)=>handleInput(e)}
-                    class="form-select appearance-none
+                    className="form-select appearance-none
                     w-full
                     px-3
                     py-3

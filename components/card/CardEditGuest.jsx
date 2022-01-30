@@ -86,7 +86,7 @@ export default function CardAddGuest({data ,id}) {
   }
 
   
-  console.log(state);
+
   return (
     <>
       {guest && <AlertMessage show={showAlert} setShowAlert={setShowAlert} message={guest.message} success={guest.success}/>}
@@ -177,7 +177,7 @@ export default function CardAddGuest({data ,id}) {
                     name = 'instance'
                     onChange={(e)=>handleInput(e)}
                  
-                    class="form-select appearance-none
+                    className="form-select appearance-none
                     w-full
                     px-3
                     py-3
