@@ -81,7 +81,7 @@ export default function CardAddGuest() {
       dispatch(getAllInstace());
      }, [dispatch]);
 
-console.log(data)
+
   return (
     <>
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}

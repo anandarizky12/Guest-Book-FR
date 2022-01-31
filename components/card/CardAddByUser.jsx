@@ -7,6 +7,7 @@ import axios from "axios";
 import { FaArrowLeft } from "@react-icons/all-files/fa/FaArrowLeft";
 import Router  from "next/router";
 import { getAllInstace } from "../../actions/guest";
+import MLoader from "../loader/MoonLoader";
 export default function AddByUser() {
 
   const dispatch = useDispatch();
@@ -79,10 +80,12 @@ export default function AddByUser() {
 
 
   return (
+  <>
+   {data ?
     <div className="p-0 md:p-12">
       {guest && <AlertMessage message={guest.message} show={showAlert} setShowAlert={setShowAlert} success={guest.success}/>}
      
-     {data && <div className="font-sans relative border border-gray-200 flex flex-col break-words w-full mb-6 shadow-lg rounded-lg ">
+     <div className="font-sans relative border border-gray-200 flex flex-col break-words w-full mb-6 shadow-lg rounded-lg ">
         <div className="rounded-t mb-0 px-4 lg:px-9 py-6 flex justify-between">
           <div className="text-center flex justify-between">
             <h6 className="text-blue-700 text-sm md:text-2xl font-semibold">Masukan Data Anda</h6>
@@ -262,7 +265,12 @@ export default function AddByUser() {
         
           </form>
         </div>
-      </div>}
+      </div>
+     
     </div>
+        :
+        <MLoader/>  
+    }
+  </>
   );
 }

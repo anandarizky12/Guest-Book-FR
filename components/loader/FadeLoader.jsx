@@ -9,7 +9,9 @@ function Loader() {
         `;
 
     return (
+        <div className="inset-2/4  translate-x-2/4 translate-y-2/4 absolute ">
             <ClipLoader color={'#555'} loading={true} css={override} size={150} />
+        </div>
     )
 }
 

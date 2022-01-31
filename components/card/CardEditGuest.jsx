@@ -5,6 +5,7 @@ import AlertMessage from "../alert/AlertMessage";
 import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
 import { getAllInstace } from "../../actions/guest";
+import Loader from "react-spinners/ClipLoader";
 // components
 
 export default function CardAddGuest({data ,id}) {
@@ -90,6 +91,7 @@ export default function CardAddGuest({data ,id}) {
   return (
     <>
       {guest && <AlertMessage show={showAlert} setShowAlert={setShowAlert} message={guest.message} success={guest.success}/>}
+      {instance_data.data ? 
       <div className="font-sans relative border border-gray-200 flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ">
         <div className="rounded-t bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
@@ -192,7 +194,7 @@ export default function CardAddGuest({data ,id}) {
                     m-0
                     focus:text-gray-500 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
                       <option value={null} disabled selected={state.instance ? false : true}>-- Klik Untuk Pilih Instansi --</option>
-                      {instance_data.data && instance_data.data.instance.map((item,index)=>{
+                      {instance_data.data.instance.map((item,index)=>{
                         return <option selected={state.instance && state.instance._id == item._id} key={index} value={item._id}>{item.name}</option>
                       })}
                       {/* <option  value={null}>Lainnya</option> */}
@@ -265,6 +267,9 @@ export default function CardAddGuest({data ,id}) {
           </form>
         </div>
       </div>
+      :
+      <Loader/>
+    }
     </>
   );
 }
