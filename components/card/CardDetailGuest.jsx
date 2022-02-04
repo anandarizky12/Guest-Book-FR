@@ -1,15 +1,23 @@
 import React from 'react'
 import moment from 'moment';
 import ButtonPrint from '../print/ButtonPrint';
-function CardDetailGuest({id, data}) {
+import DataGuestPrint from '../print/GuestPrint';
+function CardDetailGuest({data}) {
     const componentRef = React.useRef()
     return (
-        <div ref={componentRef} className="border border-gray-300 md:rounded-lg w-full p-3 relative">
+        <div className="border border-gray-300 md:rounded-lg w-full p-3 relative">
            <p className='text-xl text-gray-700 ml-2 mb-7 mt-2'>Info dasar</p>
              
-           <div removeAfterPrint={true} className="absolute top-4 right-5">
+          
+           <div  className="absolute top-4 right-5">
                     <ButtonPrint   componentRef={componentRef}/>
+            </div>
+            <div className="hidden">
+                <div  ref = {componentRef} >
+                     <DataGuestPrint   data ={data}/> 
                 </div>
+            </div>
+          
            <div className="w-full  border-b border-gray-300 p-3 flex items-center flex-row flex-wrap">
                <div className="w-52 text-xs uppercase text-gray-500">
                     <p>Nama</p>

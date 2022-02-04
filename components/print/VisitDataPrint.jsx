@@ -1,6 +1,6 @@
 import React from 'react'
 
-function VisitDataPrint({ year, report}) {
+function VisitDataPrint({year, total, totalGuest}) {
 
     const allmonth = [ "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 
@@ -15,42 +15,44 @@ function VisitDataPrint({ year, report}) {
             
             </div>
             <hr className="mb-4 md:min-w-full b-2 text-red-600 bg-red-500" />
-
+             
+            <header className='text-sm'>DATA KUNJUNGAN TAHUN {year.year} PADA BADAN PUSAT STATISTIK KOTA BANJARMASIN</header>
                 <div className ="w-full lg:w-6/6">
+                     
                         <div className ="bg-white shadow-md rounded my-6 ">
                             <table className ="min-w-full  table-auto border">
                                 <thead>
                                     <tr className ="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                        <th className ="py-3 px-6 text-left">Bulan</th>
-                                        <th className ="py-3 px-6 text-left">Total Kunjungan Perbulan</th>
-                            
+                                        <th className ="py-3 px-6 text-center">Bulan</th>
+                                        <th className ="py-3 px-6 text-center">Jumlah Kunjungan</th>
+                                  
                                     </tr>
                                 </thead>
                                 <tbody className ="text-gray-600 text-sm font-light">
-                                    {report.map((month , index) => (
-                                        <tr key={index} className ="border-b border-gray-200 hover:bg-gray-100">
-                                            <td className ="py-3 px-6 text-left w-3/6 ">
-                                                <div className ="flex items-center">
+                                    {total && total.map((each , index) => (
+                                           <tr key={index} className ="border-b border-gray-200 hover:bg-gray-100">
+                                            <td className ="py-3 px-6 text-center whitespace-nowrap">
+                                                <div>
                                                     <span className ="font-medium">{allmonth[index]}</span>
                                                 </div>
                                             </td>
-                                            <td className ="py-3 px-6 text-left">
-                                                <div className ="flex items-center">
-                                                    <span className =" py-1 px-3  text-sm">{month} Orang</span>
+                                            <td className ="py-3 px-6 text-center">
+                                                <div >
+                                                    <span className =" py-1  rounded-full text-sm">{each} Orang</span>
                                                 </div>
                                             </td>
-                                           
                                         
                                        </tr>
                                     ))} 
-                                 
-                          
+                                      <tr className ="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                                        <th className ="py-3 px-6 text-center">Total Kunjungan</th>
+                                        <th className ="py-3 px-6 text-center">{totalGuest} Orang</th>
+                                    </tr>
+                                        
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                
-    
        </div>
 
     )
