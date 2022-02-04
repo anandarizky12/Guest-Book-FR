@@ -38,7 +38,7 @@ export const addGuest = (data) => async (dispatch, getState) => {
         dispatch({type: ADD_GUEST_SUCCESS, payload: data  });
 
     }catch(error){
-        console.log(error,"dfdf");
+    
         dispatch({type: ADD_GUEST_FAIL,  payload: error.data});
     }
   
