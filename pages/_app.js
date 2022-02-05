@@ -3,10 +3,12 @@ import { Provider } from "react-redux";
 import Layout from '../components/layout/Layout';
 import store from '../store/store';
 import Head from "next/head";
+import 'moment/locale/id';
+import moment from 'moment';
 
 function MyApp({ Component, pageProps }) {
   
-
+  moment.locale('id'); 
   return (
   <Provider store={store}>
       <Head>

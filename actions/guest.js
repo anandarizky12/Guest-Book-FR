@@ -43,6 +43,18 @@ export const addGuest = (data) => async (dispatch, getState) => {
     }
   
 };
+export const editGuest = (data) => async (dispatch, getState) => {
+    try{
+        dispatch({type: EDIT_GUEST});
+
+        dispatch({type: EDIT_GUEST_SUCCESS, payload: data});
+
+    }catch(error){
+        dispatch({type: EDIT_GUEST_FAIL,  payload: error.data});
+    }
+  
+};
+
 export const getAllGuests = () => async (dispatch, getState) => {
     try{
 
@@ -135,17 +147,6 @@ export const getTotalGuest = (year) => async (dispatch, getState) => {
     }
 };  
 
-export const editGuest = (data) => async (dispatch, getState) => {
-    try{
-        dispatch({type: EDIT_GUEST});
-
-        dispatch({type: EDIT_GUEST_SUCCESS, payload: data});
-
-    }catch(error){
-        dispatch({type: EDIT_GUEST_FAIL,  payload: error.data});
-    }
-  
-};
 
 export const deleteGuest = (id) => async (dispatch, getState) => {
     try{

@@ -215,7 +215,9 @@ export default function CardAddGuest() {
                   </label>
                   <input
                     type="tel"
+                    pattern="[0-9]{10,15}"
                     name="phone"
+                    maxLength={15}
                     value={state.phone}
                     onChange={(e) => handleInput(e)}
                     className="border-0 px-3 py-3  placeholder-gray-500 text-gray-500 bg-gray-200 rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
