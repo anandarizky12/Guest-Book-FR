@@ -1,5 +1,5 @@
 import React from 'react'
-import { getFiltered, paginationData } from '../utils/filtered';
+import { getFiltered, getFilteredByTime, paginationData } from '../utils/filtered';
 import moment from 'moment';
 function VisitTimePrint({ guest, filter, activePage }) {
     return (
@@ -29,7 +29,7 @@ function VisitTimePrint({ guest, filter, activePage }) {
                     </thead>
                     <tbody className ="text-gray-600 text-sm font-light">
                         {!guest && <p>Loading . . . </p>}
-                        {guest &&  paginationData(getFiltered(guest.guest , filter), activePage, 10).map((guest , index) => (
+                        {guest &&  paginationData(getFilteredByTime(guest.timeDetail , filter), activePage, 10).map((guest , index) => (
                                <tr key={index} className ="border-b border-gray-200 hover:bg-gray-100">
                                <td className ="py-3 px-6 text-left whitespace-nowrap">
                                    <div className ="flex items-center">
@@ -37,13 +37,13 @@ function VisitTimePrint({ guest, filter, activePage }) {
                                    </div>
                                </td>
                                <td className ="py-3 px-6 text-left">
-                                       <span >{moment(guest.createdAt).format('LT')}</span>
+                                       <span >{moment(guest.date2).format('LT')}</span>
                                    </td>
                                    <td className ="py-3 px-6 text-left">
-                                       <span >{moment(guest.createdAt).format('dddd')}</span>
+                                       <span >{moment(guest.date2).format('dddd')}</span>
                                    </td>
                                    <td className ="py-3 px-6 text-center">
-                                       <span >{moment(guest.createdAt).format('LL')}</span>
+                                       <span >{moment(guest.date2).format('LL')}</span>
                                    </td>
                            </tr>
                         ))} 

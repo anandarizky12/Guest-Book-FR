@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import { getFiltered, paginationData } from '../utils/filtered'
+import { getFiltered, getFilteredByTime, paginationData } from '../utils/filtered'
 import { handleDelete } from '../utils/handleDelete';
 import { FaEye } from "@react-icons/all-files/fa/FaEye";
 import  { useDispatch } from 'react-redux'
@@ -27,7 +27,7 @@ function TableTime( { guest, filter, setFilter, activePage, setActivePage} ) {
                             </tr>
                         </thead>
                         <tbody className ="text-gray-600 text-sm font-light">
-                            {guest &&  paginationData(getFiltered(guest.guest , filter), activePage, 10).map((guest , index) => (
+                            {guest &&  paginationData(getFilteredByTime(guest.timeDetail , filter), activePage, 10).map((guest , index) => (
                                    <tr key={index} className ="border-b border-gray-200 hover:bg-gray-100">
                                    <td className ="py-3 px-6 text-left whitespace-nowrap">
                                        <div className ="flex items-center">
@@ -36,13 +36,13 @@ function TableTime( { guest, filter, setFilter, activePage, setActivePage} ) {
                                    </td>
                                    
                                    <td className ="py-3 px-6 text-center">
-                                       <span >{moment(guest.createdAt).format('LT')}</span>
+                                       <span >{moment(guest.date2).format('LT')}</span>
                                    </td>
                                    <td className ="py-3 px-6 text-center">
-                                       <span >{moment(guest.createdAt).format('dddd')}</span>
+                                       <span >{moment(guest.date2).format('dddd')}</span>
                                    </td>
                                    <td className ="py-3 px-6 text-center">
-                                       <span >{moment(guest.createdAt).format('LL')}</span>
+                                       <span >{moment(guest.date2).format('LL')}</span>
                                    </td>
                            
                                    <td className ="py-3 px-6 text-center">
