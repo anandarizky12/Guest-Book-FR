@@ -5,7 +5,7 @@ import AlertMessage from "../alert/AlertMessage";
 import ButtonLoader from "../loader/ButtonLoader";
 import axios from "axios";
 import { getAllInstace } from "../../actions/guest";
-import Loader from "react-spinners/ClipLoader";
+
 // components
 
 export default function CardAddGuest({data ,id}) {
@@ -73,25 +73,19 @@ export default function CardAddGuest({data ,id}) {
                         setLoading(false)
                       })
                       .catch((err)=>{
+                 
                         setLoading(false)
                         const msg = JSON.parse(err.request.response);
-                      
-                        // for (let key in msg) {
-                        //   setErrMsg(msg[key]);
-                        //   dispatch(editGuest(msg[key]));
-                        // }
                         dispatch(editGuest(msg));
                         setShowAlert(true);
                       })
       
   }
 
-  
-
   return (
     <>
       {guest && <AlertMessage show={showAlert} setShowAlert={setShowAlert} message={guest.message} success={guest.success}/>}
-      {instance_data.data ? 
+      {instance_data.data &&
       <div className="font-sans relative border border-gray-200 flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ">
         <div className="rounded-t bg-white mb-0 px-6 py-6">
           <div className="text-center flex justify-between">
@@ -208,7 +202,7 @@ export default function CardAddGuest({data ,id}) {
                   </label>
                   <input
                     type="email"
-                    required
+                 
                     value={state.email}
                     onChange={(e) => handleInput(e)}
                     name="email"
@@ -223,8 +217,10 @@ export default function CardAddGuest({data ,id}) {
                   </label>
                   <input
                     type="tel"
-                    value={state.phone}
+                    pattern="[0-9]{10,15}"
                     name="phone"
+                    maxLength={15}
+                    value={state.phone}
                     onChange={(e) => handleInput(e)}
                     className="border-0 px-3 py-3 placeholder-gray-300 text-gray-500 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="+62"
@@ -267,8 +263,6 @@ export default function CardAddGuest({data ,id}) {
           </form>
         </div>
       </div>
-      :
-      <Loader/>
     }
     </>
   );

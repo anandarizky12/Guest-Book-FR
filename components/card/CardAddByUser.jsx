@@ -221,8 +221,10 @@ export default function AddByUser() {
                     Nomor Telepon
                   </label>
                   <input
-                    type="tel"
-                    name="phone"
+                     type="tel"
+                     pattern="[0-9]{10,15}"
+                     name="phone"
+                     maxLength={15}
                     value={state.phone}
                     placeholder="Masukkan nomor telepon"
                     onChange={(e) => handleInput(e)}
