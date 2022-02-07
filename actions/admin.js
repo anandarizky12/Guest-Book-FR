@@ -31,7 +31,8 @@ export const adminLogin = (admin) => async (dispatch) => {
 
     localStorage.setItem('auth', JSON.stringify(admin));
 
-
+    // window.location.replace(`${server}/admin/addguest`);
+    window.location.reload();
    }catch(error){
     dispatch({type: ADMIN_LOGIN_FAIL, payload: error});
    }
