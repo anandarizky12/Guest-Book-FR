@@ -22,7 +22,7 @@ import {
 } from './actions_type/actions_type_admin';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { server } from '../components/utils/link';
+
 export const adminLogin = (admin) => async (dispatch) => {
    try{
     dispatch({type: ADMIN_LOGIN});
@@ -31,7 +31,7 @@ export const adminLogin = (admin) => async (dispatch) => {
 
     localStorage.setItem('auth', JSON.stringify(admin));
 
-    window.location.replace(`${server}/admin/addguest`);
+
    }catch(error){
     dispatch({type: ADMIN_LOGIN_FAIL, payload: error});
    }
