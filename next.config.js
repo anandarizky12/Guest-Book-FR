@@ -8,8 +8,8 @@ module.exports = {
       {
         // type: LOAD_ARTICLES,
         source: '/api/:slug*',
-        // destination: 'https://guestbookapibyar.herokuapp.com/api/:slug*', // Proxy to Backend
-          destination: 'http://localhost:5000/api/:slug*', 
+        destination: 'https://guestbookapibyar.herokuapp.com/api/:slug*', // Proxy to Backend
+      
       }
     ]
   }
