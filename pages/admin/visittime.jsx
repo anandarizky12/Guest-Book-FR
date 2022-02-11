@@ -4,7 +4,7 @@ import withAuth from "../../components/utils/privateRoutes";
 import { useDispatch, useSelector } from 'react-redux'
 import {  getAllGuests } from '../../actions/guest'
 import Pagination  from '../../components/pagination/Pagination'
-import { getFiltered } from '../../components/utils/filtered';
+import { getFiltered, getFilteredByTime } from '../../components/utils/filtered';
 import Search from '../../components/search/Search';
 import ButtonPrint from '../../components/print/ButtonPrint';
 import Loader from '../../components/loader/FadeLoader';
@@ -58,7 +58,7 @@ function Visittime() {
                   setActivePage={setActivePage}
               />
             
-                  {getFiltered(guest.guest , filter).length > 10 && <Pagination data={guest.guest} activePage={activePage} setActivePage={setActivePage} />}
+                  {getFilteredByTime(guest.timeDetail , filter).length > 10 && <Pagination data={guest.timeDetail} activePage={activePage} setActivePage={setActivePage} />}
             </>
             :
             <Loader/>

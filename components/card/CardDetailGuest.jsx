@@ -83,7 +83,7 @@ function CardDetailGuest({data}) {
                     <p>Tanggal kunjungan</p>
                </div>
                <div className="font-sans text-base text-gray-800">
-                   {moment(data.date).format('MMMM Do YYYY, h:mm:ss a')}
+                   {moment(data.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                </div>
            </div>
            <div className="w-full   p-3 flex items-center flex-row flex-wrap">
