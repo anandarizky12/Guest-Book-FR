@@ -1,8 +1,17 @@
 import moment from 'moment'
 
+
+'FROM(24/02/00-05/02/22)'
+
 export const getFiltered = (data, filter) => {
     if(filter === null){
         return data;
+    }else if(filter.slice(0,4) == "FROM"){
+        return data.filter(item=>{
+            return Objecy.value(item).some(value=>{
+                return value.toLowerCase().includes(filter.toLowerCase())
+            }
+       }
     }else{
         return data.filter(item => {
           return Object.values(item).some(value => {
