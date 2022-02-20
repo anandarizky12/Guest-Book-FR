@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { editProfile } from "../../actions/admin";
-import { checkImage, myLoader } from "../utils/image";
+import { checkImage } from "../utils/image";
 import axios from "axios";
 import MLoader from "../loader/MoonLoader";
-import { server } from "../utils/link";
+import { local } from "../utils/link";
+import Swal from "sweetalert2";
 
 export default function CardEditProfile({ data }) {
   const dispatch = useDispatch();
@@ -37,7 +38,6 @@ export default function CardEditProfile({ data }) {
 
     try {
       const link = URL.createObjectURL(e.target.files[0]);
-      setImage(link);
 
       const formData = new FormData();
       formData.append("image", file);
@@ -50,11 +50,13 @@ export default function CardEditProfile({ data }) {
       };
 
       const res = await axios.post(`${local}/upload`, formData, config);
-
+      setImage(link);
       setPayload({ ...payload, profile: res.data });
       setUploading(false);
     } catch (err) {
       console.log(err);
+      setUploading(false);
+      Swal.fire("Error!", `${err}`, "error");
     }
   };
 
@@ -96,6 +98,7 @@ export default function CardEditProfile({ data }) {
                   onChange={uploadImage}
                   id="file-upload"
                   type="file"
+                  accept="image/png, image/jpeg, mage/jpg"
                   hidden
                 />
               </div>

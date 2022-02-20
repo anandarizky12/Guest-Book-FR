@@ -18,8 +18,7 @@ function getDates(data, startDate, stopDate) {
 
 function getDatesInTime(data, startDate, stopDate) {
   let ndata = [];
-  // console.log(data[4]);
-  // console.log(moment('02/04/2022').isSameOrBefore(stopDate));
+
   for (let i = 0; i < data.length; i++) {
     if (
       moment(data[i].date2.slice(0, 10)).isSameOrAfter(startDate) &&

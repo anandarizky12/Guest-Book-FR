@@ -138,6 +138,7 @@ export const getAdmin = (id) => async (dispatch, getState) => {
     const response = await axios.get(`/api/getadmin/${id}`, config);
     dispatch({ type: GET_ADMIN_SUCCESS, payload: response.data.adminData });
   } catch (err) {
+    Swal.fire("Error!", `${err}`, "error");
     dispatch({ type: GET_ADMIN_FAIL, payload: err });
   }
 };
