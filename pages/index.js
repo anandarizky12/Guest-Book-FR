@@ -46,6 +46,7 @@ function Index() {
                     <p onClick={()=>handleNav(aboutRef)}  data-aos="slide-right" className="my-4 text-xs md:text-base text-gray-600">
                       Silahkan isi data diri Anda. #MelayaniDenganHati❤️
                     </p>
+                   
                     <button 
                           data-aos="fade-in"  
                           data-aos-duration="950"
@@ -59,8 +60,8 @@ function Index() {
               </div>
             
             </div>
-            <div data-aos="sPlide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"></div>
-            <div data-aos="slide-up" className=" md:hidden w-full h-2/6  bg-gray-100 bg-wave  bg-cover"></div>
+            <div data-aos="sPlide-left" className="hidden md:inline-block w-full h-screen bg-gray-100 bg-bps_login bg-center bg-cover"/>
+            <div data-aos="slide-up" className=" md:hidden w-full h-2/6  bg-gray-100 bg-wave  bg-cover"/>
           
           </div>
         </section>
