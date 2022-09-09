@@ -11,6 +11,7 @@ import UserDropdown from "../../dropdown/UserDropdown";
 import { FaGripLines } from "@react-icons/all-files/fa/FaGripLines";
 import { FaBuilding } from "@react-icons/all-files/fa/FaBuilding";
 import { FaClock } from "@react-icons/all-files/fa/FaClock";
+import Image from "next/image";
 
 export default function Sidebar() {
   const [collapseShow, setCollapseShow] = React.useState("hidden");
@@ -30,7 +31,13 @@ export default function Sidebar() {
 
           <Link href="/admin/addguest">
             <a className="flex flex-row items-center md:pb-2 text-gray-500 mr-0  text-xs md:text-base font-semibold p-4 px-0">
-              <img src="/onlylogo.png" className="md:mr-2 mr-1" width={30} />{" "}
+              <Image
+                src="/onlylogo.png"
+                className="md:mr-2 mr-1"
+                width={30}
+                alt="logo"
+                height={30}
+              />{" "}
               Badan Pusat Statistik
             </a>
           </Link>

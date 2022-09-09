@@ -18,8 +18,6 @@ function getDates(data, startDate, stopDate) {
 
 function getDatesInTime(data, startDate, stopDate) {
   let ndata = [];
-  // console.log(data[4]);
-  // console.log(moment('02/04/2022').isSameOrBefore(stopDate));
   for (let i = 0; i < data.length; i++) {
     if (
       moment(data[i].date2.slice(0, 10)).isSameOrAfter(startDate) &&
@@ -32,9 +30,8 @@ function getDatesInTime(data, startDate, stopDate) {
   return ndata;
 }
 
-// moment().format('L');
 export const getFiltered = (data, filter) => {
-  // console.log(data)
+
   if (filter === null) {
     return data;
   } else if (filter.slice(0, 4) == "FROM") {
@@ -53,16 +50,16 @@ export const getFiltered = (data, filter) => {
 };
 
 export const getFilteredByTime = (data, filter) => {
+
   if (filter === null) {
     return data;
   } else if (filter.slice(0, 4) == "FROM") {
-    // console.log(data)
     let ndata = getDatesInTime(data, filter.slice(5, 15), filter.slice(16, 26));
     return ndata;
   } else {
     return data.filter((item) => {
-      if (item.date.slice(0, 3) == 202) {
-        return (item.date = moment(item.date).format("LLLL"));
+      if (item.createdAt.slice(0, 3) == 202) {
+        return (item.createdAt = moment(item.createdAt).format("LLLL"));
       }
 
       return Object.values(item).some((value) => {
@@ -71,12 +68,13 @@ export const getFilteredByTime = (data, filter) => {
       });
     });
 
-    //return each value of item equal to filter
+  
   }
 };
 
 export const paginationData = (data, page, perPage) => {
   const start = (page - 1) * perPage;
   const end = page * perPage;
+
   return data.slice(start, end);
 };

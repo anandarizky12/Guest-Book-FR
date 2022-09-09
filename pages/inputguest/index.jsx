@@ -1,12 +1,14 @@
-import React from 'react'
-import AddByUser from '../../components/card/CardAddByUser'
+import React from "react";
+import AddByUser from "../../components/card/CardAddByUser";
 
 function Index() {
-    return (
-        <div>
-            <AddByUser/>
-        </div>
-    )
+  return (
+    <div className=" flex justify-center">
+      <div className="w-maxWidth">
+        <AddByUser />
+      </div>
+    </div>
+  );
 }
 
-export default Index
+export default Index;

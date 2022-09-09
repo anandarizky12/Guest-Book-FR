@@ -11,13 +11,13 @@ function VisitData() {
   const [year, setYear] = React.useState({ year: new Date().getFullYear() });
   const dispatch = useDispatch();
   const data = useSelector((state) => state.getTotalGuestReducer);
-  const { guest, loading } = data;
+  const { guest } = data;
 
   const componentRef = React.useRef();
 
   React.useEffect(() => {
     dispatch(getTotalGuest(year));
-  }, [year]);
+  }, [year, dispatch]);
 
   return (
     <>

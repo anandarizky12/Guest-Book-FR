@@ -4,6 +4,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      spacing : {
+        '80vw': '80vw',
+        'maxWidth' : '1422px',
+        'maxHeight' : '40rem',
+        'minHeight' :'20rem'
+      },
       backgroundImage:{
         'bps_login' : "url('https://webapi.bps.go.id/consumen/assets/img/login-desktop.svg')",
         'bps_about' : "url('/about.jpg')",
@@ -15,7 +21,9 @@ module.exports = {
       }
   },
   variants: {
-    extend: {},
+    extend: {
+     
+    },
   },
   plugins: [],
 }

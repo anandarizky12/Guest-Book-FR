@@ -31,6 +31,7 @@ export const addGuest = (data) => async (dispatch, getState) => {
     dispatch({ type: ADD_GUEST_SUCCESS, payload: data });
   } catch (error) {
     Swal.fire("Error!", `${error}`, "error");
+  
     dispatch({ type: ADD_GUEST_FAIL, payload: error.data });
   }
 };
@@ -63,7 +64,7 @@ export const getAllGuests = () => async (dispatch, getState) => {
     const response = await axios.get("/api/getallguests", config);
     dispatch({ type: GET_ALL_GUESTS_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+  
     Swal.fire("Error!", `${error}`, "error");
     dispatch({ type: GET_ALL_GUESTS_FAIL, error: error.message });
   }
@@ -77,8 +78,8 @@ export const getAllInstace = () => async (dispatch, getState) => {
 
     dispatch({ type: GET_ALL_INSTANCE_SUCCESS, payload: res.data });
   } catch (error) {
-    console.log(error);
     Swal.fire("Error!", `${error}`, "error");
+    window.history.back()
     dispatch({ type: GET_ALL_INSTANCE_FAIL, error: error.message });
   }
 };
@@ -86,7 +87,7 @@ export const getAllInstace = () => async (dispatch, getState) => {
 export const getGuest = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: GET_GUEST });
-    console.log(id);
+   
     const {
       auth: { adminInfo },
     } = getState();
@@ -101,7 +102,7 @@ export const getGuest = (id) => async (dispatch, getState) => {
 
     dispatch({ type: GET_GUEST_SUCCESS, payload: response.data });
   } catch (error) {
-    console.log(error);
+  
     // Swal.fire("Error!", `${error}`, "error");
     dispatch({ type: GET_GUEST_FAIL, payload: error.message });
   }
@@ -126,7 +127,7 @@ export const getTotalGuest = (year) => async (dispatch, getState) => {
 
     dispatch({ type: GET_TOTAL_GUEST_SUCCESS, payload: response });
   } catch (error) {
-    console.log(error);
+  
     Swal.fire("Error!", `${error}`, "error");
     dispatch({ type: GET_TOTAL_GUEST_FAIL, payload: error.response });
   }

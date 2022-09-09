@@ -2,17 +2,6 @@ import { deleteGuest, getAllGuests } from "../../actions/guest"
 import Swal from 'sweetalert2';
 
 
-// const showLoading = function() {
-// .then(
-//     () => {},
-//     (dismiss) => {
-//       if (dismiss === 'timer') {
-//         console.log('closed by timer!!!!');
-      
-//       }
-//     }
-//   )
-// };
 export  const handleDelete = (dispatch,id) => {
   
     Swal.fire({

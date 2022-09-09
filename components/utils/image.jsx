@@ -1,19 +1,12 @@
-//https://i.imgur.com/ExPrPlU.png
-import { server } from "./link";
-// const link = "https://guestbookapibyar.herokuapp.com";
-
 export const myLoader = ({ src, width, quality }) => {
-    return `https://example.com/${src}?w=${width}&q=${quality || 75}`
-  }
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
 export const checkImage = (image) => {
-    if(!image){
-        return 'https://i.imgur.com/ExPrPlU.png'
-    }else if(image.slice(0,4) === 'blob'){
-        return image
-    }else{
-        return server+image
-    }
-    
-
-}
-    
+  const apiUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  if (!image) {
+    return "https://i.imgur.com/ExPrPlU.png";
+  } else if (image.slice(0, 4) === "blob") {
+    return image;
+  }
+  return apiUrl + image;
+};

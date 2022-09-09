@@ -4,7 +4,8 @@ import { editProfile } from "../../actions/admin";
 import { checkImage } from "../utils/image";
 import axios from "axios";
 import MLoader from "../loader/MoonLoader";
-import { server } from "../utils/link";
+import Image from "next/image";
+import ErrorMessage from "../alert/ErrorMessage";
 
 export default function CardEditProfile({ data }) {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ export default function CardEditProfile({ data }) {
   });
 
   const [image, setImage] = React.useState(!image && data.profile);
-
+  const [error, setError] = React.useState(false);
   const handleChange = (e) => {
     setPayload({
       ...payload,
@@ -49,17 +50,31 @@ export default function CardEditProfile({ data }) {
         },
       };
 
-      const res = await axios.post(`${server}/upload`, formData, config);
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/upload`,
+        formData,
+        config
+      );
 
       setPayload({ ...payload, profile: res.data });
       setUploading(false);
     } catch (err) {
-      console.log(err);
+     
+      setError(true);
+      setPayload({ ...payload, profile: checkImage(image) });
+      setImage(null);
+      setUploading(false);
     }
   };
 
   return (
     <div className="font-sans relative border border-gray-300  flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg ">
+      {error && (
+        <ErrorMessage
+          message={"Failed To Upload Image"}
+          setShowAlert={setError}
+        />
+      )}
       <div className="rounded-t bg-white mb-0 px-6 py-6">
         <div className="text-center flex justify-between">
           <h6 className="text-gray-400 text-xl font-semibold">My account</h6>
@@ -75,12 +90,17 @@ export default function CardEditProfile({ data }) {
               {uploading ? (
                 <MLoader />
               ) : (
-                <img
-                  alt="Change Fotos"
-                  htmlFor="attachment"
-                  src={checkImage(image)}
-                  className="shadow-xl mt-8 rounded-md h-32 md:h-56 align-middle border-none max-w-150-px cursor-pointer"
-                />
+                <>
+                  <Image
+                    alt="Change Fotos"
+                    htmlFor="attachment"
+                    width={200}
+                    height={200}
+                    loader={() => checkImage(image)}
+                    src={checkImage(image)}
+                    className="shadow-xl mt-8 rounded-md h-32 md:h-56 align-middle border-none max-w-150-px cursor-pointer"
+                  />
+                </>
               )}
               <div className="my-5">
                 <label

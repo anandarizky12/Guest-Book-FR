@@ -66,7 +66,6 @@ export const updatePaswword = (id, data) => async (dispatch , getState ) => {
 };
 
 export const editProfile = (id, data) => async (dispatch, getState) => {
-    console.log(data);
     try{
         dispatch({type: EDIT_PROFILE});
         Swal.fire({
@@ -143,8 +142,7 @@ export const getAdmin = (id) => async (dispatch, getState) => {
         };
         const response = await axios.get(`/api/getadmin/${id}`, config);
         dispatch({type: GET_ADMIN_SUCCESS, payload: response.data.adminData});
-        
-
+    
     }catch(err){
         dispatch({type: GET_ADMIN_FAIL, payload: err});
     }

@@ -1,6 +1,5 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import {
     addGuestReducer,
     getALLGuestsReducers,
@@ -16,22 +15,9 @@ import {
     getAdmin,
     getAllAdmin
 } from '../reducers/adminReducers';
-// import {
-//     user, userRegisterReducer, userLoginReducer
-// } from './reducers/userReducers';
-// import {
-//     createQuestionReducer, 
-//     editQuestionReducer, 
-//     deleteQuestionReducer, 
-//     getAllQuestionsReducer, 
-//     getMyQuestionsReducer ,
-//     voteReducer
-// } from './reducers/questionReducers';
-// import Alert from './reducers/alertReducers';
+
 
 const reducers = combineReducers({
-
-    // Add your reducers here
     addGuestReducer,
     allGuests : getALLGuestsReducers,
     auth : adminLogin ,

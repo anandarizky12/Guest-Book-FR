@@ -1,14 +1,12 @@
+import Image from "next/image";
 import React from "react";
-import { useRouter } from "next/router";
 import { getFiltered, paginationData } from "../utils/filtered";
 
 function AdminDataPrint({ admin, filter, activePage }) {
-  const router = useRouter();
-
   return (
     <div className="flex flex-col w-full p-5 items-center my-2">
       <div className="flex bb-2">
-        <img src="/onlylogo.png" alt="BPS" width={70} />
+        <Image src="/onlylogo.png" alt="BPS" width={70} height={70} />
         <div className="text-center">
           <p className="text-xl">BADAN PUSAT STATISTIK KOTA BANJARMASIN</p>
           <p className="text-sm">

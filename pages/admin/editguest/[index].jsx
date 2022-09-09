@@ -14,7 +14,7 @@ function Addguest() {
 
   React.useEffect(() => {
     dispatch(getGuest(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <div className="flex flex-wrap items-center w-full">

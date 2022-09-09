@@ -58,12 +58,14 @@ export default function Login() {
       .catch((err) => {
         Swal.fire("Error!", `${err}`, "error");
         setloading(false);
-        const msg = JSON.parse(err.request.response);
-        for (let key in msg) {
-          setErrMsg(msg[key]);
-        }
+        if (err.message.response) {
+          const msg = JSON.parse(err.request.response);
+          for (let key in msg) {
+            setErrMsg(msg[key]);
+          }
 
-        setErr(true);
+          setErr(true);
+        }
       });
   };
   return (

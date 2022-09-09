@@ -15,6 +15,7 @@ const Editprofile = () => {
 
   React.useEffect(() => {
     dispatch(getAdmin(adminInfo.adminData.id));
+    //eslint-disable-next-line
   }, [dispatch]);
 
   return <div>{data ? <CardEditProfile data={data} /> : <Loader />}</div>;

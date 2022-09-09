@@ -49,7 +49,7 @@ export default function CardAddGuest({ data, id }) {
   };
   React.useEffect(() => {
     dispatch(getAllInstace());
-  }, []);
+  }, [dispatch]);
   const instance_data = useSelector((state) => state.getAllInstanceReducer);
 
   const handleSubmit = async (e) => {

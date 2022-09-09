@@ -66,7 +66,7 @@ export default function AddByUser() {
 
   React.useEffect(() => {
     dispatch(getAllInstace());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
